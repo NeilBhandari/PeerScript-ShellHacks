@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.title {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.input-box {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-portal-search-button,
+.create-patient-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-block !important;
+}
+
+.Search-Portal-Buttons{
+    display: flex;
+}
+.search-portal-search-button {
+    background-color: #007bff;
+}
+
+.search-portal-search-button:hover {
+    background-color: #0056b3;
+}
+
+.create-patient-button {
+    background-color: #28a745;
+}
+
+.create-patient-button:hover {
+    background-color: #218838;
+}

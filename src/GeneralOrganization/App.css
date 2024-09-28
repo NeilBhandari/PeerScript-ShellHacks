@@ -1,0 +1,20 @@
+
+:root{
+    --background-color-hsl2: 84.72972973, 100%, 70.98039216%;
+    --background-color-hsl: 250.34482759,81.92090395%,65.29411765%;
+    --font-family: roc-grotesk;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
+}
+
+
+h1 {
+    text-align: center;
+    margin: 30px;
+}
