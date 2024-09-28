@@ -1,65 +1,67 @@
 body {
-    font-family: var(--font-family);
-    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
     margin: 0;
-    padding: 0;
-}
-
-.patient-form {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a0dad, #00ff7f);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #FFFFFF; /* White background for the form */
-    border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
 }
 
-.patient-form h2 {
-    color: #4B2E83; /* Purple color for headings */
+.create-patient-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.create-patient-form h2 {
+    color: #6a0dad;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-.patient-form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #4B2E83; /* Consistent purple color for labels */
+.create-patient-form label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 8px;
+    color: #6a0dad;
 }
 
-.patient-form input {
-    margin-bottom: 15px;
+.create-patient-form input {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #CCCCCC; /* Light border for input fields */
-    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #6a0dad;
+    border-radius: 8px;
     transition: border-color 0.3s;
 }
 
-.patient-form input:focus {
-    border-color: #1E90FF; /* Focus color for better accessibility */
+.create-patient-form input:focus {
     outline: none;
+    border-color: #00ff7f;
 }
 
-.submit-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #775EEF;
+.create-patient-button-container {
+    text-align: center;
+}
+
+.create-patient-submit-button {
+    background-color: #6a0dad;
     color: white;
-    transition: background-color 0.3s;
-    font-weight: bold;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.submit-button:hover {
-    background-color: #007BFF; /* Darker blue on hover */
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align form on the page */
+.create-patient-submit-button:hover {
+    background-color: #00ff7f;
+    transform: translateY(-5px);
 }

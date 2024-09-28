@@ -4,9 +4,10 @@ import React from 'react';
 // import './App.css';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CreatePatient from './components/Create-New-Patient.jsx';
+
 import InfoDisplay from './components/Info-Display.jsx';
 import SearchPage from './components/Search-Portal.jsx';
+import CreatePatient from './components/Create-New-Patient.jsx';
 import './App.css';
 const App = () => {
     return (
