@@ -5,7 +5,7 @@ import '../styles/NavBar.css'
 function Navbar() {
   return (
     <nav className="bg-purple-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="containers mx-auto flex justify-between items-center">
         <ul className="flex space-x-4">
         <li>
             <Link to="/info-display" className="hover:text-gray-300">

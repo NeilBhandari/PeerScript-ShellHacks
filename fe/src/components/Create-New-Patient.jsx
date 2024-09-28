@@ -6,12 +6,25 @@ const CreatePatient = () => {
         name: '',
         age: '',
         weight: '',
+        height: '',
+        gender: '',
         diagnosis: '',
+        prescription1: '',
+        prescription2: '',
+        prescription3: ''
     });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+
+        // Ensure age, weight, and height are integers
+        if (name === 'age' || name === 'weight' || name === 'height') {
+            setFormData({ ...formData, [name]: parseInt(value) || '' });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
+
+        /*Almost done*/
     };
 
     const handleSubmit = (e) => {
@@ -22,6 +35,7 @@ const CreatePatient = () => {
     return (
         <form onSubmit={handleSubmit} className="create-patient-form">
             <h2>Create New Patient</h2>
+
             <label htmlFor="name">Name:</label>
             <input
                 type="text"
@@ -42,12 +56,22 @@ const CreatePatient = () => {
                 required
             />
 
-            <label htmlFor="weight">Weight:</label>
+            <label htmlFor="weight">Weight (kg):</label>
             <input
-                type="text"
+                type="number"
                 id="weight"
                 name="weight"
                 value={formData.weight}
+                onChange={handleInputChange}
+                required
+            />
+
+            <label htmlFor="height">Height (cm):</label>
+            <input
+                type="number"
+                id="height"
+                name="height"
+                value={formData.height}
                 onChange={handleInputChange}
                 required
             />
@@ -70,3 +94,4 @@ const CreatePatient = () => {
 };
 
 export default CreatePatient;
+
