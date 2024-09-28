@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import './Info-Display.css';
+import '../styles/Info-Display.css';
 
 const InfoDisplay = () => {
     const location = useLocation();

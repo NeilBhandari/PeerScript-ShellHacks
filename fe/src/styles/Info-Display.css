@@ -42,13 +42,13 @@ h2 {
     color: hsl(var(--background-color-hsl));
 }
 
-
+/* Fixed everything*/
 .info-container {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 400px;
-    background-color: hsl(var(--background-color-hsl2));
+    background: white;
 }
 
 .info-field {
@@ -87,7 +87,7 @@ h2 {
 .generate-report-button {
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: hsl(var(--background-color-hsl));
+    background-color: black;
     color: white;
     border: none;
     border-radius: 4px;

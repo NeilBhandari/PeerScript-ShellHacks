@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Create-New-Patient.css';
+import '../styles/Create-New-Patient.css';
 
 const CreatePatient = () => {
     const [formData, setFormData] = useState({

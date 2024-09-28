@@ -6,6 +6,7 @@
     align-items: center;
     position: sticky; /* Keeps the navbar at the top */
     width: 100vh; /* Makes the navbar take the full width of the screen */
+    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for depth */
 }
 

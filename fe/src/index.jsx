@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import SearchPortal from "./Search-Portal.jsx";
-import './Search-Portal.css';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <SearchPortal />
+        <App /> {/* Render the App component */}
     </React.StrictMode>
 );

@@ -1,7 +1,6 @@
 body {
-    background-color: hsl(var(--background-color-hsl2));
     font-family: var(--font-family);
-    color: #FFFFFF; /* White text for contrast against the purple background */
+    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
     margin: 0;
     padding: 0;
 }
