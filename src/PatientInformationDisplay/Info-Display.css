@@ -1,0 +1,99 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.title {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.input-box {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    color: hsl(var(--background-color-hsl));
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    color: #333;
+}
+
+.info-field {
+    margin: 10px 0;
+    font-size: 18px;
+    color: hsl(var(--background-color-hsl));
+}
+
+
+.info-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    background-color: hsl(var(--background-color-hsl2));
+}
+
+.info-field {
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.medication-input {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allows input to take available space */
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between the buttons */
+}
+
+.add-medication-button {
+    margin-left: 10px; /* Adjusts space between input and button */
+    padding: 8px 12px;
+    background-color: hsl(var(--background-color-hsl));
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-medication-button:hover {
+    background-color: #45a049;
+}
+
+.generate-report-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: hsl(var(--background-color-hsl));
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.generate-report-button:hover {
+    background-color: #0056b3;
+}
