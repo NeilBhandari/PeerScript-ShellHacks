@@ -1,50 +1,45 @@
 .navbar {
-    background-color: #4A0072; /* Purple background */
-    padding: 10px 20px;
+    background-color: #4A0072; 
+    margin-bottom: 16px;
+    padding: 16px 0px;
+    width: 100%;
+}
+
+.container {
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; /* Keeps the navbar at the top */
-    width: 100vh; /* Makes the navbar take the full width of the screen */
-    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for depth */
+    padding: 0;
 }
 
-/* Logo/Brand */
-.navbar-logo {
-    font-size: 24px;
-    color: white;
-    font-weight: bold;
-}
-
-/* Navigation Links */
-.navbar-links {
-    list-style: none;
+ul {
+    list-style-type: none;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
     margin: 0;
+    padding: 0;
+    width: 90%;
 }
 
-/* Each link style */
-.nav-link {
+a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
+    transition: color 0.3s;
 }
 
-/* Hover effect on the links */
-.nav-link:hover {
-    background-color: #38a169; /* Green similar to the website */
-    color: white;
-    transition: background-color 0.3s ease;
+a:hover {
+    color: rgba(255, 255, 255, 0.8);
 }
 
-/* Make sure the links are responsive */
 @media (max-width: 768px) {
-    .navbar-links {
+    .container {
         flex-direction: column;
-        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    ul {
+        flex-direction: column;
+        gap: 8px;
     }
 }

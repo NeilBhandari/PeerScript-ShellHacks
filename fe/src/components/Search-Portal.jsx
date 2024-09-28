@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Search-Portal.css';
+import NavBar from './NavBar.jsx'
+
 
 const SearchPage = () => {
+    
     const [name, setName] = useState('');
 
     return (
         <div className="container">
+            {/* <div className='navbar'>
+            <NavBar />
+            </div> */}
+            
             <label htmlFor="name-input" className="title">Patient's Name:</label>
             <input
                 type="text"
