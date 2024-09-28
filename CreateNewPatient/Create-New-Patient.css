@@ -1,0 +1,66 @@
+body {
+    background-color: hsl(var(--background-color-hsl2));
+    font-family: var(--font-family);
+    color: #FFFFFF; /* White text for contrast against the purple background */
+    margin: 0;
+    padding: 0;
+}
+
+.patient-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #FFFFFF; /* White background for the form */
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patient-form h2 {
+    color: #4B2E83; /* Purple color for headings */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.patient-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4B2E83; /* Consistent purple color for labels */
+}
+
+.patient-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #CCCCCC; /* Light border for input fields */
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.patient-form input:focus {
+    border-color: #1E90FF; /* Focus color for better accessibility */
+    outline: none;
+}
+
+.submit-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #775EEF;
+    color: white;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.submit-button:hover {
+    background-color: #007BFF; /* Darker blue on hover */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align form on the page */
+}
