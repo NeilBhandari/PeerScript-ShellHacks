@@ -101,7 +101,31 @@
     }
   }
   
-
+  .patient-report {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .patient-report h2 {
+    margin-bottom: 15px;
+  }
+  
+  .patient-report h3 {
+    margin-top: 20px;
+  }
+  
+  .patient-report ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .patient-report li {
+    margin-bottom: 5px;
+  }
+  
 
 
 

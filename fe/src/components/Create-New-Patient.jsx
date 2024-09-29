@@ -7,11 +7,12 @@ const CreatePatient = () => {
         age: '',
         weight: '',
         height: '',
-        gender: '',
+        gender: 'Female',
         diagnosis: '',
-        prescription1: '',
-        prescription2: '',
-        prescription3: ''
+
+        prescription1: 'None',
+        prescription2: 'None',
+        prescription3: 'None'
     });
 
     const handleInputChange = (e) => {
