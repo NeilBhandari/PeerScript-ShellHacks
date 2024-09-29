@@ -8,8 +8,9 @@ const SearchPage = () => {
     const [error, setError] = useState(null);
     const [patientList, setPatientList] = useState(null);
     const [selectedPatient, setSelectedPatient] = useState(null);
-    const [prescriptions, setPrescriptions] = useState({ prescription1: '', prescription2: '', prescription3: '' });
+    const [prescriptions, setPrescriptions] = useState(['']);
     const [patientReport, setPatientReport] = useState(null);
+    const [prescriptionErrors, setPrescriptionErrors] = useState([]);
     const navigate = useNavigate();
 
     const handleSearch = async () => {
@@ -38,8 +39,6 @@ const SearchPage = () => {
             }
 
             const data = await response.json();
-            console.log('Patient data fetched:', data);
-
             if (data.patients) {
                 setPatientList(data.patients);
             } else {
@@ -47,7 +46,6 @@ const SearchPage = () => {
             }
         } catch (error) {
             setError('Error fetching data: ' + error.message);
-            console.error('Error during search:', error);
         } finally {
             setIsLoading(false);
         }
@@ -74,15 +72,45 @@ const SearchPage = () => {
             setSelectedPatient(data.patient);
             setPatientReport(data.report);
         } catch (error) {
-            console.error('Error fetching patient data:', error);
             setError(`Error fetching patient data: ${error.message}`);
         } finally {
             setIsLoading(false);
         }
     };
 
-    const handlePrescriptionChange = (e) => {
-        setPrescriptions({ ...prescriptions, [e.target.name]: e.target.value });
+    const handlePrescriptionChange = (index, value) => {
+        const updatedPrescriptions = [...prescriptions];
+        updatedPrescriptions[index] = value;
+        setPrescriptions(updatedPrescriptions);
+
+        // Clear any existing errors for this prescription
+        const updatedErrors = [...prescriptionErrors];
+        updatedErrors[index] = null;
+        setPrescriptionErrors(updatedErrors);
+    };
+
+    const handleAddPrescription = (index) => {
+        if (!prescriptions[index]) {
+            // Display caution if input is empty
+            const updatedErrors = [...prescriptionErrors];
+            updatedErrors[index] = 'Please fill out this field before adding another.';
+            setPrescriptionErrors(updatedErrors);
+            return;
+        }
+
+        if (prescriptions.length < 3) {
+            setPrescriptions([...prescriptions, '']);
+        }
+    };
+
+    const handleRemovePrescription = (index) => {
+        const updatedPrescriptions = [...prescriptions];
+        updatedPrescriptions.splice(index, 1); // Remove the prescription at the given index
+        setPrescriptions(updatedPrescriptions);
+
+        const updatedErrors = [...prescriptionErrors];
+        updatedErrors.splice(index, 1); // Remove the error associated with the prescription
+        setPrescriptionErrors(updatedErrors);
     };
 
     const handleSubmitPrescriptions = async () => {
@@ -106,7 +134,6 @@ const SearchPage = () => {
             const data = await response.json();
             navigate('/updated-report-display', { state: { updatedData: { ...data, patientReport } } });
         } catch (error) {
-            console.error('Error updating prescriptions:', error);
             setError(`Error updating prescriptions: ${error.message}`);
         } finally {
             setIsLoading(false);
@@ -114,21 +141,20 @@ const SearchPage = () => {
     };
 
     return (
-        <div className="search-container">
-            <h2>Search Patient Records</h2>
+        <div className="search-box">
+            <h2 className="search-title">Search Patient Records</h2>
             <div className="input-container">
-                <label htmlFor="patientName">Patient Name</label>
+                <label htmlFor="patientName" className="input-label">Patient Name</label>
                 <input
                     type="text"
                     id="patientName"
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
                     placeholder="Enter patient name"
-                    className="search-input"
+                    className={`input-field ${error ? 'error' : ''}`}
                 />
+                {error && <p className="error-message">{error}</p>}
             </div>
-
-            {error && <p className="error-message">{error}</p>}
 
             <button onClick={handleSearch} className="search-button" disabled={isLoading}>
                 {isLoading ? 'Searching...' : 'Search'}
@@ -152,39 +178,34 @@ const SearchPage = () => {
             {selectedPatient && (
                 <div className="prescription-form">
                     <h3>Add Prescriptions for {selectedPatient.name}</h3>
-                    <div className="input-container">
-                        <label htmlFor="prescription1">Prescription 1</label>
-                        <input
-                            type="text"
-                            id="prescription1"
-                            name="prescription1"
-                            value={prescriptions.prescription1}
-                            onChange={handlePrescriptionChange}
-                            className="search-input"
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="prescription2">Prescription 2</label>
-                        <input
-                            type="text"
-                            id="prescription2"
-                            name="prescription2"
-                            value={prescriptions.prescription2}
-                            onChange={handlePrescriptionChange}
-                            className="search-input"
-                        />
-                    </div>
-                    <div className="input-container">
-                        <label htmlFor="prescription3">Prescription 3</label>
-                        <input
-                            type="text"
-                            id="prescription3"
-                            name="prescription3"
-                            value={prescriptions.prescription3}
-                            onChange={handlePrescriptionChange}
-                            className="search-input"
-                        />
-                    </div>
+                    {prescriptions.map((prescription, index) => (
+                        <div key={index} className="input-container">
+                            <label htmlFor={`prescription${index + 1}`}>Prescription {index + 1}</label>
+                            <input
+                                type="text"
+                                id={`prescription${index + 1}`}
+                                name={`prescription${index + 1}`}
+                                value={prescription}
+                                onChange={(e) => handlePrescriptionChange(index, e.target.value)}
+                                className="input-field"
+                            />
+                            {prescriptionErrors[index] && <p className="error-message">{prescriptionErrors[index]}</p>}
+
+                            {/* Add button for Prescription 1 and Prescription 2 */}
+                            {index < 2 && prescriptions.length === index + 1 && (
+                                <button onClick={() => handleAddPrescription(index)} className="add-button">
+                                    Add
+                                </button>
+                            )}
+
+                            {/* Remove button for Prescription 2 and Prescription 3 */}
+                            {index > 0 && (
+                                <button onClick={() => handleRemovePrescription(index)} className="remove-button">
+                                    Remove
+                                </button>
+                            )}
+                        </div>
+                    ))}
                     <button onClick={handleSubmitPrescriptions} className="search-button" disabled={isLoading}>
                         {isLoading ? 'Submitting...' : 'Submit Prescriptions'}
                     </button>

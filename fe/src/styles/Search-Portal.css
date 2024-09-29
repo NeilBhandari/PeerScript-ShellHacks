@@ -4,32 +4,38 @@
   width: 100%; /* Ensures link takes full width */
   display: block; /* Make the link behave like a block element */
 }
+
 .search-box {
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  width: 50vw;
+  margin-top: 100px;
 }
-/*My changes*/
+
+/* Title Styles */
 .search-title {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
-  color: white;
+  color: hsl(var(--background-color-hsl2));
   text-align: center;
   margin-bottom: 20px;
 }
 
+/* Input Container Styles */
 .input-container {
   margin-bottom: 16px;
+  margin-right: -40px;
 }
 
 .input-label {
   display: block;
   font-weight: 600;
-  color: white;
+  color: #2f2f2f;
   margin-bottom: 8px;
+  font-size: 24px;
 }
 
 .input-field {
@@ -47,6 +53,18 @@
   box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
 }
 
+/* Error Styles */
+.input-field.error {
+  border: 2px solid red; /* Red border when there's an error */
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Button Group Styles */
 .button-group {
   margin-top: 20px;
   display: flex;
@@ -54,21 +72,25 @@
   gap: 10px;
 }
 
-.search-button, .create-button {
+/* Button Styles */
+.search-button,
+.create-button {
   width: 100%;
   padding: 10px;
+  margin: 0px;
   font-weight: bold;
-  color: white;
+  color: #2f2f2f;
   border: none;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-items: left;
 }
 
 .search-button {
-  background-color: purple;
+  background-color: hsl(var(--background-color-hsl));
+  font-size: 16px;
+  width: 25%;
+  margin: 5px;
 }
 
 .search-button:hover {
@@ -89,140 +111,331 @@
   margin-left: 8px;
 }
 
-
-.input-field.error {
-  border: 2px solid red; /* Red border when there's an error */
+/* Patient List Styles */
+.patient-list {.Search-Portal-Buttons {
+  text-decoration: none; /* Remove default underline */
+  width: 100%; /* Ensures link takes full width */
+  display: block; /* Make the link behave like a block element */
 }
 
-.error-text {
+  .search-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+  }
+
+  /* Title Styles */
+  .search-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Input Container Styles */
+  .input-container {
+    margin-bottom: 16px;
+    width: 50vw;
+  }
+
+  .input-label {
+    display: block;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #333;
+    border: none;
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+    padding-right: 10px;
+  }
+
+  .input-field:focus {
+    box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+  }
+
+  /* Error Styles */
+  .input-field.error {
+    border: 2px solid red; /* Red border when there's an error */
+  }
+
+  .error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  /* Button Group Styles */
+  .button-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Button Styles */
+  .search-button,
+  .create-button {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-button {
+    background-color: purple;
+  }
+
+  .search-button:hover {
+    background-color: darkviolet;
+    transform: scale(1.05);
+  }
+
+  .create-button {
+    background-color: green;
+  }
+
+  .create-button:hover {
+    background-color: darkgreen;
+    transform: scale(1.05);
+  }
+
+  .icon-right {
+    margin-left: 8px;
+  }
+
+  /* Patient List Styles */
+  .patient-list {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .patient-list h3 {
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .patient-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .patient-list li {
+    margin: 5px 0;
+  }
+
+  .patient-list button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2ecc71; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .patient-list button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+  }
+
+  /* Prescription Form Styles */
+  .prescription-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+  }
+
+  .prescription-form h3 {
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  /* Required Asterisk */
+  .required-asterisk {
+    color: red;
+    margin-left: 5px;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .search-box {
+      padding: 15px;
+      width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .search-button,
+    .create-button {
+      font-size: 14px;
+    }
+
+    .input-field {
+      font-size: 14px;
+    }
+  }
+
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.patient-list h3 {
+  color: #202020;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.patient-list ul {
+  font-size: 40px;
+  list-style-type: none;
+  padding: 15px;
+  margin-left: -30px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-list li {
+  margin: 5px 0;
+}
+
+.patient-list button {
+  width: 100%;
+  padding: 20px;
+  background-color: purple; /* Green button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.patient-list button:hover {
+  background-color: #27ae60; /* Darker green on hover */
+}
+
+/* Prescription Form Styles */
+.prescription-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+}
+
+.prescription-form h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Required Asterisk */
+.required-asterisk {
+  color: red;
+  margin-left: 5px;
+}
+/* Prescription Input Container */
+.prescription-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Prescription Input Field */
+.prescription-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out;
+  margin-right: 10px; /* Spacing between input and buttons */
+}
+
+/* Prescription Input Field Focus State */
+.prescription-input:focus {
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+/* Add Button Styles */
+.add-button {
+  padding: 10px;
+  background-color: hsl(var(--background-color-hsl2)); /* Adjust the color as needed */
+  color: hsl(var(--background-color-hsl));
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+/* Add Button Hover State */
+.add-button:hover {
+  background-color: rebeccapurple; /* Darker green on hover */
+}
+
+/* Remove Button Styles */
+.remove-button {
+  padding: 10px;
+  background-color: #202020; /* Adjust the color as needed */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Remove Button Hover State */
+.remove-button:hover {
+  background-color: darkred; /* Darker red on hover */
+}
+
+/* Prescription Errors */
+.error-message {
   color: red;
   font-size: 14px;
   margin-top: 5px;
 }
 
-.required-asterisk {
-  color: red;
-  margin-left: 5px;
-}
-
-@keyframes gradient-x {
-  0% {
-    background-position: 0% 50%;
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .search-box {
+    padding: 15px;
+    width: 90%; /* Adjust width for smaller screens */
   }
-  50% {
-    background-position: 100% 50%;
+
+  .search-button,
+  .create-button {
+    font-size: 14px;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .input-field {
+    font-size: 14px;
   }
 }
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6a0dad, #00ff7f);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container-one {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 40px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-}
-
-.title {
-    font-size: 24px;
-    color: #6a0dad;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.input-box {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    border: 2px solid #6a0dad;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    transition: 0.3s;
-}
-
-.input-box:focus {
-    outline: none;
-    border-color: #00ff7f;
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-}
-
-.Search-Portal-Buttons button {
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.Search-Portal-Buttons button:hover {
-    background-color: #00ff7f;
-    transform: translateY(-5px);
-}
-
-.search-portal-search-button {
-    animation: pulse 1.5s infinite ease-in-out;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.create-patient-button {
-    background-color: #00ff7f;
-}
-
-.create-patient-button:hover {
-    background-color: #6a0dad;
-    transform: translateY(-5px);
-}
- */

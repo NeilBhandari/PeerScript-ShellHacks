@@ -1,8 +1,15 @@
-.navbar {
-    background:linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl))); 
-    margin-bottom: 50px;
-    padding: 16px 0px;
-    width: 100vw;
+
+
+.navbar-container {
+    background: linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl)));
+    padding: 16px 0;
+    width: 100%;
+    position: fixed; /* Make the navbar stick to the top */
+    top: 0; /* Position it at the top */
+    left: 0; /* Align to the left */
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    margin-bottom: 20px; /* Adds space below the navbar */
 }
 
 .containers {
@@ -16,21 +23,41 @@
 ul {
     list-style-type: none;
     display: flex;
-    justify-content:right;
+    justify-content: right;
     margin: 0;
-    padding: 0px 2vw;
+    padding: 0 2vw;
     width: 100vw;
     gap: 5%;
+    font-weight: bold;
 }
 
-a {
+.navbar-container a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s ease; /* Smooth transition for color */
+    position: relative;
+    padding-bottom: 5px; /* Add space for the underline */
 }
 
-a:hover {
-    color: rgba(255, 255, 255, 0.8);
+.navbar-container a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: purple;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out; /* Transition effect for the underline */
+}
+
+.navbar-container a:hover::after,
+.navbar-container a:focus::after,
+.navbar-container a:active::after {
+    width: 100%; /* Full-width underline on hover, focus, or active */
+}
+
+.navbar-container a:hover {
+    color: rgba(255, 255, 255, 0.8); /* Lighter color on hover */
 }
 
 @media (max-width: 768px) {

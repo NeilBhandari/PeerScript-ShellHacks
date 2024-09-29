@@ -1,85 +1,4 @@
-/* 
-.info-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.report-title {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
-}
-
-.report-section {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.section-title {
-    color: #3498db;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    font-size: 22px;
-}
-
-.report-item {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.item-key {
-    font-weight: bold;
-    color: #34495e;
-    margin-right: 10px;
-}
-
-.item-value {
-    color: #2c3e50;
-}
-
-.report-text {
-    color: #2c3e50;
-    line-height: 1.6;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
 .container {
     display: flex;
     align-items: center;
@@ -216,5 +135,5 @@ h2 {
     100% {
         border-right-color: black;
     }
-} */
+}
 

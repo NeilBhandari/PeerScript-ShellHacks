@@ -1,0 +1,74 @@
+.welcome-page {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    height: 100;
+    max-width: 100%;
+}
+
+.left-side {
+    background:linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl))); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 50%;
+    
+}
+
+.right-side {
+    background-color: hsl(var(--background-color-hsl2));
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    max-width: 50vw;
+}
+
+/* Image styles */
+img {
+    width: 50vw; /* Make the image fill the left side */
+    height: 100vh; /* Maintain aspect ratio */
+}
+
+.Welcome-Page-Buttons {
+    background-color: hsl(var(--background-color-hsl2));
+    color: purple;
+    border: none;
+    padding: 20px 15px;
+    margin: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Ensure there's no underline */
+    display: inline-block; /* Ensure it behaves like a button, not a link */
+    font-weight: bold;
+}
+
+.Welcome-Page-Button:hover, 
+.Welcome-Page-Buttons:hover {
+    transform: translateY(-5px);
+    background-color: hsl(var(--background-color-hsl));
+    color: hsl(var(--background-color-hsl2));
+}
+
+/* Remove underline/underscore effect for buttons */
+.Welcome-Page-Button::after,
+.Welcome-Page-Buttons::after {
+    display: none; 
+}
+
+.Right-Button,
+.Left-Button{
+width: 50%;
+padding-left: 10%;
+}
+
+.header {
+    font-size: 64px; /* Adjust the font size as needed */
+    color: #202020;
+    margin-bottom: 20px; /* Space between header and buttons */
+    text-align: left; /* Center the header text */
+    padding-left: 14%;
+}
