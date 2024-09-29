@@ -1,146 +1,122 @@
 
-  .Search-Portal-Buttons {
-    text-decoration: none; /* Remove default underline */
-    width: 100%; /* Ensures link takes full width */
-    display: block; /* Make the link behave like a block element */
-  }
-  .search-box {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-  }
-  /*My changes*/
-  .search-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .input-container {
-    margin-bottom: 16px;
-  }
-  
-  .input-label {
-    display: block;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 8px;
-  }
-  
-  .input-field {
-    width: 94.1%;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #333;
-    border: none;
-    outline: none;
-    transition: box-shadow 0.3s ease-in-out;
-  }
-  
-  .input-field:focus {
-    box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
-  }
-  
-  .button-group {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .search-button, .create-button {
-    width: 100%;
-    padding: 10px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .search-button {
-    background-color: purple;
-  }
-  
-  .search-button:hover {
-    background-color: darkviolet;
-    transform: scale(1.05);
-  }
-  
-  .create-button {
-    background-color: green;
-  }
-  
-  .create-button:hover {
-    background-color: darkgreen;
-    transform: scale(1.05);
-  }
-  
-  .icon-right {
-    margin-left: 8px;
-  }
+.Search-Portal-Buttons {
+  text-decoration: none; /* Remove default underline */
+  width: 100%; /* Ensures link takes full width */
+  display: block; /* Make the link behave like a block element */
+}
+.search-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+/*My changes*/
+.search-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 16px;
+}
+
+.input-label {
+  display: block;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  width: 94.1%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.input-field:focus {
+  box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+}
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-button, .create-button {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button {
+  background-color: purple;
+}
+
+.search-button:hover {
+  background-color: darkviolet;
+  transform: scale(1.05);
+}
+
+.create-button {
+  background-color: green;
+}
+
+.create-button:hover {
+  background-color: darkgreen;
+  transform: scale(1.05);
+}
+
+.icon-right {
+  margin-left: 8px;
+}
 
 
 .input-field.error {
-    border: 2px solid red; /* Red border when there's an error */
+  border: 2px solid red; /* Red border when there's an error */
 }
 
 .error-text {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
 .required-asterisk {
-    color: red;
-    margin-left: 5px;
+  color: red;
+  margin-left: 5px;
 }
-  
-  @keyframes gradient-x {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+
+@keyframes gradient-x {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  .patient-report {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  .patient-report h2 {
-    margin-bottom: 15px;
+  100% {
+    background-position: 0% 50%;
   }
-  
-  .patient-report h3 {
-    margin-top: 20px;
-  }
-  
-  .patient-report ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .patient-report li {
-    margin-bottom: 5px;
-  }
+}
+
   
 
 

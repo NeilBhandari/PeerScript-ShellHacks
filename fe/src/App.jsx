@@ -1,6 +1,8 @@
 // src/App.js
 
 import React from 'react';
+
+import UpdatedReportDisplay from './components/UpdatedReportDisplay';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import InfoDisplay from './components/Info-Display.jsx';
@@ -23,6 +25,7 @@ const App = () => {
                         <Route path="/" element={<SearchPage />} />
                         <Route path="/info-display" element={<InfoDisplay />} />
                         <Route path="/create-patient" element={<CreatePatient />} />
+                        <Route path="/updated-report" element={<UpdatedReportDisplay />} />
                     </Routes>
                 </TransitionWrapper>
             </div>
