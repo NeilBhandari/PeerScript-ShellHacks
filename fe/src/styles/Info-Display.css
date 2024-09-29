@@ -70,15 +70,31 @@ h2 {
     gap: 10px; /* Adds space between the buttons */
 }
 
+
+.medication-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-top: 10px;   /* Space between medication fields */
+}
+
+.medication-input {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allows input to take available space */
+}
+
 .add-medication-button {
-    margin-left: 10px; /* Adjusts space between input and button */
-    padding: 8px 12px;
+    margin-left: 10px; /* Space between input and button */
+    padding: 6px 5px;
     background-color: hsl(var(--background-color-hsl));
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
+
 
 .add-medication-button:hover {
     background-color: #45a049;
@@ -97,3 +113,27 @@ h2 {
 .generate-report-button:hover {
     background-color: #0056b3;
 }
+
+.typing-effect {
+    white-space: pre-wrap; /* Preserve newlines and spacing */
+    overflow: hidden;
+    border-right: 2px solid;
+    font-family: 'Courier', monospace; /* Typewriter style */
+    font-size: 16px;
+    line-height: 1.5;
+    animation: caret-blink 1s infinite;
+}
+
+/* Blinking caret effect */
+@keyframes caret-blink {
+    0% {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+    100% {
+        border-right-color: black;
+    }
+}
+

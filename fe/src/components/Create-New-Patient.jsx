@@ -7,12 +7,20 @@ const CreatePatient = () => {
         age: '',
         weight: '',
         height: '',
-        gender: '',
         diagnosis: '',
-        prescription1: '',
-        prescription2: '',
-        prescription3: ''
     });
+
+    const [errors, setErrors] = useState({});
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [unfoldedFields, setUnfoldedFields] = useState([true, false, false, false, false]); // Start with Name field unfolded
+
+    const fields = [
+        { label: 'Name', name: 'name', type: 'text', required: true },
+        { label: 'Age', name: 'age', type: 'number', required: true },
+        { label: 'Weight (kg)', name: 'weight', type: 'number', required: true },
+        { label: 'Height (cm)', name: 'height', required: true, type: 'number' },
+        { label: 'Diagnosis', name: 'diagnosis', type: 'text', required: true },
+    ];
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -24,67 +32,62 @@ const CreatePatient = () => {
             setFormData({ ...formData, [name]: value });
         }
 
-        /*Almost done*/
+        // Reset the error for the field as the user starts typing
+        if (isSubmitted) {
+            setErrors((prevErrors) => ({ ...prevErrors, [name]: false }));
+        }
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+        Object.keys(formData).forEach((field) => {
+            if (unfoldedFields[fields.findIndex(f => f.name === field)] && !formData[field]) {
+                newErrors[field] = true;
+            }
+        });
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Patient Data:', formData);
+        setIsSubmitted(true); // Mark the form as submitted
+
+        if (validateForm()) {
+            // Find the first field that hasn't been unfolded yet
+            const nextFieldIndex = unfoldedFields.findIndex((unfolded) => !unfolded);
+
+            // If there's a field to unfold
+            if (nextFieldIndex !== -1) {
+                const newUnfoldedFields = [...unfoldedFields];
+                newUnfoldedFields[nextFieldIndex] = true; // Unfold the next field
+                setUnfoldedFields(newUnfoldedFields);
+            } else {
+                console.log('Patient Data:', formData); // If all fields are filled, log the data
+            }
+        }
     };
 
     return (
         <form onSubmit={handleSubmit} className="create-patient-form">
             <h2>Create New Patient</h2>
 
-            <label htmlFor="name">Name:</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-            />
-
-            <label htmlFor="age">Age:</label>
-            <input
-                type="number"
-                id="age"
-                name="age"
-                value={formData.age}
-                onChange={handleInputChange}
-                required
-            />
-
-            <label htmlFor="weight">Weight (kg):</label>
-            <input
-                type="number"
-                id="weight"
-                name="weight"
-                value={formData.weight}
-                onChange={handleInputChange}
-                required
-            />
-
-            <label htmlFor="height">Height (cm):</label>
-            <input
-                type="number"
-                id="height"
-                name="height"
-                value={formData.height}
-                onChange={handleInputChange}
-                required
-            />
-
-            <label htmlFor="diagnosis">Diagnosis:</label>
-            <input
-                type="text"
-                id="diagnosis"
-                name="diagnosis"
-                value={formData.diagnosis}
-                onChange={handleInputChange}
-                required
-            />
+            {fields.map((field, index) => (
+                unfoldedFields[index] && ( // Only show fields that are unfolded
+                    <div key={field.name}>
+                        <label htmlFor={field.name} className="required">{field.label}:</label>
+                        <input
+                            type={field.type}
+                            id={field.name}
+                            name={field.name}
+                            value={formData[field.name]}
+                            onChange={handleInputChange}
+                            className={errors[field.name] && isSubmitted ? 'error' : ''}
+                            required={field.required}
+                        />
+                    </div>
+                )
+            ))}
 
             <div className="create-patient-button-container">
                 <button type="submit" className="create-patient-submit-button">Save</button>
@@ -94,4 +97,3 @@ const CreatePatient = () => {
 };
 
 export default CreatePatient;
-

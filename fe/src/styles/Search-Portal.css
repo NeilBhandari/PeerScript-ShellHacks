@@ -88,6 +88,22 @@
   .icon-right {
     margin-left: 8px;
   }
+
+
+.input-field.error {
+    border: 2px solid red; /* Red border when there's an error */
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.required-asterisk {
+    color: red;
+    margin-left: 5px;
+}
   
   @keyframes gradient-x {
     0% {

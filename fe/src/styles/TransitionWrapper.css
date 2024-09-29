@@ -1,0 +1,21 @@
+.slide-enter {
+    transform: translateX(-100%); /* Start off the screen to the left */
+    opacity: 0; /* Start fully transparent */
+}
+
+.slide-enter-active {
+    transform: translateX(0); /* Move to original position */
+    opacity: 1; /* Fade in */
+    transition: transform 300ms ease, opacity 300ms ease; /* Smooth transition */
+}
+
+.slide-exit {
+    transform: translateX(0); /* Start from original position */
+    opacity: 1; /* Start fully visible */
+}
+
+.slide-exit-active {
+    transform: translateX(100%); /* Move off the screen to the right */
+    opacity: 0; /* Fade out */
+    transition: transform 300ms ease, opacity 300ms ease; /* Smooth transition */
+}

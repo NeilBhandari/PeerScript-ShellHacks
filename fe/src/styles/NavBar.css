@@ -1,8 +1,8 @@
 .navbar {
-    background-color: #4A0072; 
-    margin-bottom: 16px;
+    background:linear-gradient(90deg, hsl(var(--background-color-hsl2)), hsl(var(--background-color-hsl))); 
+    margin-bottom: 50px;
     padding: 16px 0px;
-    width: 100%;
+    width: 100vw;
 }
 
 .containers {
@@ -16,10 +16,11 @@
 ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
+    justify-content:right;
     margin: 0;
-    padding: 0;
-    width: 90%;
+    padding: 0px 2vw;
+    width: 100vw;
+    gap: 5%;
 }
 
 a {
