@@ -3,9 +3,32 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, UserPlus } from 'lucide-react';
 import '../styles/Search-Portal.css';
 
-
 const SearchPage = () => {
   const [name, setName] = useState('');
+  const [searchResults, setSearchResults] = useState(null);
+  const [error, setError] = useState(null);
+
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/patients/search-patients?name=${name}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to search patients');
+      }
+
+      const data = await response.json();
+      setSearchResults(data); // Save the results if needed
+      console.log('Search Results:', data);
+    } catch (error) {
+      console.error('Error:', error);
+      setError('An error occurred while searching');
+    }
+  };
 
   return (
     <div className="search-page-container">
@@ -25,25 +48,33 @@ const SearchPage = () => {
           />
         </div>
         <div className="button-group">
-        <Link to="/info-display" state={{ name }} className="Search-Portal-Buttons">
-          <button className="search-button">
+          <button className="search-button" onClick={handleSearch}>
             <span>Search</span>
             <ArrowRight className="icon-right" size={18} />
           </button>
-          </Link>
           <Link to="/create-patient" className="Search-Portal-Buttons">
-          <button className="create-button">
-            <span>Create new patient</span>
-            <UserPlus className="icon-right" size={18} />
-          </button>
+            <button className="create-button">
+              <span>Create new patient</span>
+              <UserPlus className="icon-right" size={18} />
+            </button>
           </Link>
         </div>
+
+        {/* Display search results or error message */}
+        {searchResults && (
+          <div className="search-results">
+            <h2>Search Results:</h2>
+            <pre>{JSON.stringify(searchResults, null, 2)}</pre>
+          </div>
+        )}
+        {error && <p className="error-message">{error}</p>}
       </div>
     </div>
   );
 };
 
 export default SearchPage;
+
 
 
 

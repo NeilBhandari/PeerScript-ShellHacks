@@ -23,13 +23,30 @@ const CreatePatient = () => {
         } else {
             setFormData({ ...formData, [name]: value });
         }
-
-        /*Almost done*/
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Patient Data:', formData);
+        try {
+            const response = await fetch('http://localhost:3000/api/patients/add-patient', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit patient data');
+            }
+
+            const data = await response.json();
+            console.log('Success:', data);
+            alert('Patient added successfully');
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred while submitting the form');
+        }
     };
 
     return (
@@ -94,4 +111,5 @@ const CreatePatient = () => {
 };
 
 export default CreatePatient;
+
 
