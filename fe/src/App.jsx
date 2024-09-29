@@ -25,7 +25,7 @@ const App = () => {
                         <Route path="/" element={<SearchPage />} />
                         <Route path="/info-display" element={<InfoDisplay />} />
                         <Route path="/create-patient" element={<CreatePatient />} />
-                        <Route path="/updated-report" element={<UpdatedReportDisplay />} />
+                        <Route path="/updated-report-display" element={<UpdatedReportDisplay />} />
                     </Routes>
                 </TransitionWrapper>
             </div>

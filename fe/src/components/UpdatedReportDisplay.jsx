@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom';
 
 const UpdatedReportDisplay = () => {
     const location = useLocation();
-    const { updatedData } = location.state || {}; // Access the updated data from state
+    const { updatedData } = location.state || {};
 
     if (!updatedData) {
         return <p>No updated report available</p>;
     }
 
-    const { patient, recommendations } = updatedData;
+    const { patient, recommendations, patientReport } = updatedData;
 
     return (
         <div style={styles.container}>
@@ -27,14 +27,19 @@ const UpdatedReportDisplay = () => {
 
             <div style={styles.section}>
                 <h3 style={styles.subHeader}>Prescriptions</h3>
-                <p style={styles.text}><strong>Prescription 1:</strong> {patient.prescription1}</p>
-                <p style={styles.text}><strong>Prescription 2:</strong> {patient.prescription2}</p>
-                <p style={styles.text}><strong>Prescription 3:</strong> {patient.prescription3}</p>
+                <p style={styles.text}><strong>Prescription 1:</strong> {patient.prescription1 || 'None'}</p>
+                <p style={styles.text}><strong>Prescription 2:</strong> {patient.prescription2 || 'None'}</p>
+                <p style={styles.text}><strong>Prescription 3:</strong> {patient.prescription3 || 'None'}</p>
             </div>
 
             <div style={styles.section}>
-                <h3 style={styles.subHeader}>Recommendations</h3>
-                <pre style={styles.pre}>{recommendations}</pre> {/* Using pre to preserve formatting of text */}
+                <h3 style={styles.subHeader}>Patient Report</h3>
+                <pre style={styles.pre}>{patientReport}</pre>
+            </div>
+
+            <div style={styles.section}>
+                <h3 style={styles.subHeader}>Prescription Recommendations</h3>
+                <pre style={styles.pre}>{recommendations}</pre>
             </div>
         </div>
     );

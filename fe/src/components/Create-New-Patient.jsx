@@ -7,7 +7,7 @@ const CreatePatient = () => {
         age: '',
         weight: '',
         height: '',
-        gender: 'Female',
+        gender: '',
         diagnosis: '',
 
         prescription1: 'None',
@@ -49,6 +49,7 @@ const CreatePatient = () => {
             alert('An error occurred while submitting the form');
         }
     };
+
 
     return (
         <form onSubmit={handleSubmit} className="create-patient-form">
@@ -94,6 +95,16 @@ const CreatePatient = () => {
                 required
             />
 
+            <label htmlFor="gender">Gender:</label>
+            <input
+                type="text"
+                id="gender"
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                required
+            />
+
             <label htmlFor="diagnosis">Diagnosis:</label>
             <input
                 type="text"
@@ -112,5 +123,3 @@ const CreatePatient = () => {
 };
 
 export default CreatePatient;
-
-

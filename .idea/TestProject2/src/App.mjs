@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/hackathon', {
+mongoose.connect('mongodb://localhost:27017/hackathons', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000
