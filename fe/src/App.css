@@ -1,0 +1,15 @@
+:root{
+    --background-color-hsl2: 84.72972973, 100%, 70.98039216%;
+    --background-color-hsl: 250.34482759,81.92090395%,65.29411765%;
+    --font-family: roc-grotesk;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

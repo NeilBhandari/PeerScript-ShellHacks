@@ -1,0 +1,220 @@
+/* 
+.info-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-title {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.report-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: #3498db;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.report-item {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.item-key {
+    font-weight: bold;
+    color: #34495e;
+    margin-right: 10px;
+}
+
+.item-value {
+    color: #2c3e50;
+}
+
+.report-text {
+    color: #2c3e50;
+    line-height: 1.6;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.title {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.input-box {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    color: hsl(var(--background-color-hsl));
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    color: #333;
+}
+
+.info-field {
+    margin: 10px 0;
+    font-size: 18px;
+    color: hsl(var(--background-color-hsl));
+}
+
+/* Fixed everything*/
+.info-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+    background: white;
+}
+
+.info-field {
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.medication-input {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allows input to take available space */
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between the buttons */
+}
+
+
+.medication-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-top: 10px;   /* Space between medication fields */
+}
+
+.medication-input {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allows input to take available space */
+}
+
+.add-medication-button {
+    margin-left: 10px; /* Space between input and button */
+    padding: 6px 5px;
+    background-color: hsl(var(--background-color-hsl));
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.add-medication-button:hover {
+    background-color: #45a049;
+}
+
+.generate-report-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.generate-report-button:hover {
+    background-color: #0056b3;
+}
+
+.typing-effect {
+    white-space: pre-wrap; /* Preserve newlines and spacing */
+    overflow: hidden;
+    border-right: 2px solid;
+    font-family: 'Courier', monospace; /* Typewriter style */
+    font-size: 16px;
+    line-height: 1.5;
+    animation: caret-blink 1s infinite;
+}
+
+/* Blinking caret effect */
+@keyframes caret-blink {
+    0% {
+        border-right-color: black;
+    }
+    50% {
+        border-right-color: transparent;
+    }
+    100% {
+        border-right-color: black;
+    }
+} */
+

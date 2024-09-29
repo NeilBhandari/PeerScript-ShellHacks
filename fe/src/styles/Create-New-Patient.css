@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a0dad, #00ff7f);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-patient-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    padding-right: 60px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; 
+    margin: auto;
+}
+
+
+.create-patient-form h2 {
+    color: #6a0dad;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.create-patient-form label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 8px;
+    color: #6a0dad;
+    position: relative;
+}
+
+.create-patient-form label.required::after {
+    content: " *";
+    color: red;
+    position: absolute;
+    right: -20px;
+    top: 0;
+}
+
+.create-patient-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #6a0dad;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.create-patient-form input:focus {
+    outline: none;
+    border-color: #00ff7f;
+}
+
+.create-patient-form input.error {
+    border-color: red;
+}
+
+.create-patient-button-container {
+    text-align: center;
+}
+
+.create-patient-submit-button {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.create-patient-submit-button:hover {
+    background-color: #00ff7f;
+    transform: translateY(-5px);
+}
+
