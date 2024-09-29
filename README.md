@@ -1,2 +1,2 @@
 # ShellHacksProject
- Teammates: Neil, Victoria, Megane, Yamel
+ Teammates: Neil, Victoria, Megane
