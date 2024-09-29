@@ -8,7 +8,7 @@ function Navbar() {
       <div className="containers mx-auto flex justify-between items-center">
         <ul className="flex space-x-4">
         <li>
-            <Link to="/info-display" className="hover:text-gray-300">
+            <Link to="/" className="hover:text-gray-300">
               Patients's Information
             </Link>
           </li>
@@ -17,12 +17,6 @@ function Navbar() {
               Add New Patient
             </Link>
           </li>
-          <li>
-            <Link to="/" className="hover:text-gray-300">
-              View Reports
-            </Link>
-          </li>
-          
         </ul>
       </div>
     </nav>

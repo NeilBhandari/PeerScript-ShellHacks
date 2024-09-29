@@ -1,3 +1,5 @@
+// src/App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -5,6 +7,8 @@ import InfoDisplay from './components/Info-Display.jsx';
 import SearchPage from './components/Search-Portal.jsx';
 import CreatePatient from './components/Create-New-Patient.jsx';
 import NavBar from './components/NavBar.jsx';
+import TransitionWrapper from './components/TransitionWrapper.jsx'; // Import the TransitionWrapper
+
 import './App.css';
 
 const App = () => {
@@ -14,11 +18,13 @@ const App = () => {
                 <div className='navbar'>
                     <NavBar />
                 </div>
-                <Routes>
-                    <Route path="/" element={<SearchPage />} />
-                    <Route path="/info-display" element={<InfoDisplay />} />
-                    <Route path="/create-patient" element={<CreatePatient />} />
-                </Routes>
+                <TransitionWrapper>
+                    <Routes>
+                        <Route path="/" element={<SearchPage />} />
+                        <Route path="/info-display" element={<InfoDisplay />} />
+                        <Route path="/create-patient" element={<CreatePatient />} />
+                    </Routes>
+                </TransitionWrapper>
             </div>
         </Router>
     );
