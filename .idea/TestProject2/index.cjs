@@ -39,6 +39,9 @@ const Patient = mongoose.model('Patient', PatientSchema);
 
 const PrescriptionSchema = new mongoose.Schema({
     name: String,
+    dosage: Number,
+    frequency: String,
+    route: String,
 });
 
 const Prescription = mongoose.model('Prescription', PrescriptionSchema);
@@ -48,6 +51,11 @@ const groq = new Groq({ apiKey: 'gsk_Se5QXLLnAz0RAU3FvaDQWGdyb3FYzGJrv2PyOroEHXU
 function calculateBSA(weight, height) {
     return Math.sqrt((weight * height) / 3600);
 }
+
+function calculateClarkFormula(weight) {
+    return (weight * 4 + 7) / (weight + 90);
+}
+
 
 async function getPatientReport(patient) {
     try {
@@ -87,9 +95,30 @@ async function getPatientReport(patient) {
 async function getPrescriptionRecommendations(patient) {
     try {
         console.log('Starting prescription recommendations generation...');
-        const prescriptionDetails = [patient.prescription1, patient.prescription2, patient.prescription3]
-            .filter(p => p && p.trim().length > 0)
-            .join('\n');
+        const bsa = calculateBSA(patient.weight, patient.height);
+        let prescriptionDetails = '';
+
+        const prescriptions = [patient.prescription1, patient.prescription2, patient.prescription3]
+            .filter(p => p && p.trim().length > 0);
+
+        for (const prescriptionName of prescriptions) {
+            const prescription = await Prescription.findOne({ name: prescriptionName });
+            if (prescription) {
+                let dosage = prescription.dosage;
+                let finalDosage = dosage * bsa;
+
+                if (patient.age < 18) {
+                    const clarkFactor = calculateClarkFormula(patient.weight);
+                    finalDosage *= clarkFactor;
+                }
+
+                finalDosage = Math.round(finalDosage * 100) / 100; // Round to 2 decimal places
+
+                prescriptionDetails += `${prescription.name} ${dosage} mg/m² ${prescription.frequency} ${prescription.route} Final Dosage: ${finalDosage} mg\n`;
+            } else {
+                prescriptionDetails += `${prescriptionName}: Prescription details not found in database\n`;
+            }
+        }
 
         const prompt = `Given the following patient information and current prescriptions, provide recommendations for optimizing the medication regimen:
 
@@ -99,7 +128,7 @@ async function getPrescriptionRecommendations(patient) {
         Gender: ${patient.gender}
         Weight: ${patient.weight} kg
         Height: ${patient.height} cm
-        BSA: ${calculateBSA(patient.weight, patient.height).toFixed(2)} m²
+        BSA: ${bsa.toFixed(2)} m²
         Diagnosis: ${patient.diagnosis}
 
         Current Prescriptions:
@@ -119,13 +148,14 @@ async function getPrescriptionRecommendations(patient) {
         });
         console.log('Received response from Groq API');
 
-        return completion.choices[0]?.message?.content || "Unable to generate prescription recommendations";
+        const aiRecommendations = completion.choices[0]?.message?.content || "Unable to generate prescription recommendations";
+
+        return prescriptionDetails + "\n\nAI Recommendations:\n" + aiRecommendations;
     } catch (error) {
         console.error('Error generating prescription recommendations:', error);
         return "Error generating recommendations: " + error.message;
     }
 }
-
 app.get('/api/search-patient', async (req, res) => {
     const { name } = req.query;
     if (!name || name.trim().length === 0) {

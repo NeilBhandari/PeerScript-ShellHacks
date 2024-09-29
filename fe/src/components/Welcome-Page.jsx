@@ -7,7 +7,7 @@ const WelcomePage = () => {
   return (
     <div className="welcome-page">
       <div className="left-side">
-        <h1 className="header">WELCOME!</h1> {/* Add a header here */}
+        <h1 className="header">PEERSCRIPT</h1> {/* Add a header here */}
         <Link to="/searchPage" className='Right-Button'>
           <button className="Welcome-Page-Buttons">Patient Search</button>      
         </Link>   

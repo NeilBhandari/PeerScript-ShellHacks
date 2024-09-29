@@ -118,12 +118,18 @@ const SearchPage = () => {
         setError(null);
 
         try {
+            const prescriptionData = {
+                prescription1: prescriptions[0] || null,
+                prescription2: prescriptions[1] || null,
+                prescription3: prescriptions[2] || null
+            };
+
             const response = await fetch(`http://localhost:3000/api/patient/${selectedPatient._id}/prescriptions`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(prescriptions),
+                body: JSON.stringify(prescriptionData),
             });
 
             if (!response.ok) {
@@ -139,7 +145,6 @@ const SearchPage = () => {
             setIsLoading(false);
         }
     };
-
     return (
         <div className="search-box">
             <h2 className="search-title">Search Patient Records</h2>
